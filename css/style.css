@@ -1,0 +1,1274 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  background: #080e19;
+  color: #f3f0e9;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.7;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button:disabled {
+  opacity: .6;
+  cursor: wait;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+
+/* =========================================
+   IMAGE HOMEPAGE
+   Original background image and click areas
+========================================= */
+
+.image-hero {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 1648 / 928;
+  overflow: hidden;
+  display: block;
+  isolation: isolate;
+  background: #07101e;
+}
+
+.image-hero .hero-background {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  z-index: 0;
+}
+
+
+/* Transparent navigation layer */
+
+.image-header {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  display: block;
+  background: transparent;
+  pointer-events: none;
+}
+
+
+/* All clickable areas */
+
+.image-hotspot {
+  position: absolute;
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 30px;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 6;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.image-hotspot:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+
+/* Logo click area */
+
+.logo-hotspot {
+  left: 2.8%;
+  top: 0;
+  width: 17%;
+  height: 12%;
+}
+
+
+/* Navigation click areas */
+
+.image-nav {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Home */
+.nav-home {
+  left: 45.5%;
+  top: 2%;
+  width: 5%;
+  height: 7%;
+}
+
+/* Art */
+.nav-explore {
+  left: 51.5%;
+  top: 2%;
+  width: 4.5%;
+  height: 7%;
+}
+
+/* Music */
+.nav-about {
+  left: 56.5%;
+  top: 2%;
+  width: 5.5%;
+  height: 7%;
+}
+
+
+/* Language toggle */
+
+.language-hotspot {
+  left: 88.5%;
+  top: 1.5%;
+  width: 9.5%;
+  height: 7%;
+}
+
+
+/* =========================================
+   THREE BUTTONS ALREADY DRAWN IN THE IMAGE
+
+   Their click areas are positioned lower than
+   the old 41.9% setting, matching the screenshot.
+========================================= */
+
+/* Explore Gallery */
+
+.cta-explore {
+  left: 31.8%;
+  top: 30.5%;
+  width: 13.8%;
+  height: 6.5%;
+}
+
+/* Share Your Art */
+
+.cta-art {
+  left: 46.2%;
+  top: 30.5%;
+  width: 12.5%;
+  height: 6.5%;
+}
+
+/* Share Your Music */
+
+.cta-music {
+  left: 59.5%;
+  top: 30.5%;
+  width: 14.5%;
+  height: 6.5%;
+}
+
+
+/* Target positions */
+
+#about,
+#gallery,
+#songs,
+#artworkForm,
+#songForm {
+  scroll-margin-top: 25px;
+}
+
+
+/* =========================================
+   ABOUT AND SECTION HEADINGS
+========================================= */
+
+.about-section {
+  padding: 115px 20px;
+  text-align: center;
+  background: radial-gradient(
+    ellipse at top,
+    #203c4c,
+    #101b2b 55%,
+    #080e19
+  );
+}
+
+.section-heading {
+  max-width: 780px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.eyebrow {
+  color: #a9c6b7;
+  letter-spacing: 4px;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  margin: 18px 0;
+  font-size: clamp(30px, 4.5vw, 46px);
+  font-weight: normal;
+  line-height: 1.3;
+}
+
+.section-heading > p:last-child {
+  color: #bfc8d1;
+  line-height: 2;
+}
+
+
+/* =========================================
+   FORMS
+========================================= */
+
+.gallery-section {
+  padding: 110px 7%;
+  background: #101927;
+}
+
+.form-container {
+  width: min(100%, 680px);
+  margin: 0 auto 75px;
+  padding: 35px;
+  border: 1px solid rgba(195, 215, 226, .25);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .045);
+  backdrop-filter: blur(10px);
+}
+
+.form-container h3 {
+  margin-bottom: 8px;
+  font-size: 25px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.form-intro {
+  margin-bottom: 28px;
+  color: #aeb9c8;
+  text-align: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  color: #e0e7ed;
+  font-size: 14px;
+}
+
+.form-group small {
+  color: #9aa9b9;
+  font-size: 12px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid #526579;
+  border-radius: 9px;
+  background: rgba(5, 12, 24, .6);
+  color: white;
+  outline: none;
+}
+
+.form-group input[type=file] {
+  padding: 10px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #a5c6c1;
+  box-shadow: 0 0 0 3px rgba(165, 198, 193, .12);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #8d9bab;
+}
+
+.form-group textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.form-group select option {
+  background: #152235;
+  color: white;
+}
+
+.artwork-preview-container {
+  margin: 0 0 24px;
+  text-align: center;
+}
+
+.artwork-preview-container img {
+  display: block;
+  max-width: 100%;
+  max-height: 380px;
+  margin: auto;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 30px;
+  background: #c4c6dd;
+  color: #111a2b;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.submit-button:hover {
+  background: #e2e1f0;
+  transform: translateY(-2px);
+}
+
+.form-message {
+  min-height: 24px;
+  margin-top: 13px;
+  color: #b6d8c5;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.form-message.error-message {
+  color: #e8a5a5;
+}
+
+
+/* =========================================
+   ARTWORK GALLERY
+========================================= */
+
+.gallery-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.art-card {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 14px;
+  background: #182436;
+  cursor: pointer;
+  transition: transform .3s, border-color .3s;
+}
+
+.art-card:hover,
+.art-card:focus-visible {
+  transform: translateY(-6px);
+  border-color: rgba(169, 198, 183, .55);
+  outline: none;
+}
+
+.art-card > img {
+  display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  background: #152235;
+}
+
+.art-info {
+  padding: 22px;
+}
+
+.art-info h3 {
+  margin-bottom: 8px;
+  font-size: 21px;
+  font-weight: normal;
+}
+
+.art-info p {
+  margin: 12px 0;
+  color: #b8c3d0;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.art-info span {
+  color: #9fb6aa;
+  font-size: 12px;
+}
+
+.art-info .artwork-author {
+  display: block;
+  margin-top: 12px;
+}
+
+.empty-message {
+  grid-column: 1 / -1;
+  padding: 30px;
+  color: #aeb9c8;
+  text-align: center;
+}
+
+
+/* =========================================
+   SONGS
+========================================= */
+
+.songs-section {
+  padding: 110px 20px;
+  background: radial-gradient(
+    ellipse at top,
+    #294253,
+    #121f30 48%,
+    #090f1b
+  );
+}
+
+.song-list-container {
+  max-width: 850px;
+  margin: 85px auto 0;
+}
+
+#songList {
+  display: grid;
+  gap: 18px;
+}
+
+.song-card {
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .05);
+  cursor: pointer;
+  transition: transform .25s, background .25s, border-color .25s;
+}
+
+.song-card:hover,
+.song-card:focus-visible {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, .08);
+  border-color: rgba(169, 198, 183, .45);
+  outline: none;
+}
+
+.song-card h4 {
+  margin-bottom: 5px;
+  font-size: 21px;
+  font-weight: normal;
+}
+
+.song-card .song-artist {
+  margin-bottom: 14px;
+  color: #a9c6b7;
+  font-size: 13px;
+}
+
+.song-card .song-story {
+  margin-bottom: 15px;
+  color: #d1d7df;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.song-card .song-author {
+  color: #8fa4b7;
+  font-size: 12px;
+}
+
+.song-card .card-hint {
+  display: block;
+  margin-top: 14px;
+  color: #a9c6b7;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+
+
+/* =========================================
+   DETAIL MODALS
+========================================= */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(2, 7, 15, .86);
+  backdrop-filter: blur(8px);
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  max-height: 86vh;
+  overflow-y: auto;
+  padding: 45px;
+  border: 1px solid rgba(190, 210, 220, .25);
+  border-radius: 18px;
+  background: radial-gradient(
+    ellipse at top,
+    #294253,
+    #101b2c 65%,
+    #0a101b
+  );
+}
+
+.close-modal {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  border: 0;
+  background: transparent;
+  color: #e7e9ee;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  color: #a9c6b7;
+}
+
+.modal-content h2 {
+  margin: 20px 0 8px;
+  font-size: 34px;
+  font-weight: normal;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.detail-artwork-image {
+  display: block;
+  width: 100%;
+  max-height: 420px;
+  margin: 25px auto;
+  border-radius: 10px;
+  object-fit: contain;
+  background: rgba(0, 0, 0, .18);
+}
+
+.detail-meta,
+.detail-artist {
+  margin: 5px 0 18px;
+  color: #a9c6b7;
+}
+
+.detail-story {
+  color: #e2e6eb;
+  line-height: 2;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 16px;
+}
+
+.detail-author,
+.detail-reference {
+  margin-top: 22px;
+  color: #9aafbd;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.comments-section {
+  margin-top: 42px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, .15);
+}
+
+.comments-section h3 {
+  margin-bottom: 20px;
+  font-size: 23px;
+  font-weight: normal;
+}
+
+.comment-item {
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+.comment-item strong {
+  color: #a9c6b7;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.comment-item p {
+  margin-top: 5px;
+  color: #d5dce3;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.comment-item small {
+  display: block;
+  margin-top: 7px;
+  color: #91a99e;
+  font-size: 11px;
+}
+
+#commentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 25px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.site-footer {
+  padding: 55px 20px;
+  text-align: center;
+  background: #070c15;
+}
+
+.site-footer > p {
+  color: #aab6c3;
+  font-size: 14px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .image-hero {
+    aspect-ratio: 1648 / 928;
+    min-height: 0;
+  }
+
+  .logo-hotspot {
+    left: 2%;
+    top: 0;
+    width: 20%;
+    height: 12%;
+  }
+
+  .nav-home {
+    left: 44%;
+    width: 6%;
+  }
+
+  .nav-explore {
+    left: 50.5%;
+    width: 6%;
+  }
+
+  .nav-about {
+    left: 56.5%;
+    width: 6.5%;
+  }
+
+  .language-hotspot {
+    left: 86.5%;
+    width: 12%;
+  }
+
+  .cta-explore {
+    left: 30.5%;
+    top: 30.5%;
+    width: 15%;
+    height: 7%;
+  }
+
+  .cta-art {
+    left: 46%;
+    top: 30.5%;
+    width: 13.5%;
+    height: 7%;
+  }
+
+  .cta-music {
+    left: 59.5%;
+    top: 30.5%;
+    width: 15.5%;
+    height: 7%;
+  }
+
+  .about-section {
+    padding: 85px 20px;
+  }
+
+  .gallery-section {
+    padding: 75px 18px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .art-card > img {
+    height: 260px;
+  }
+
+  .form-container {
+    padding: 23px 18px;
+  }
+
+  .songs-section {
+    padding: 80px 16px;
+  }
+
+  .song-list-container {
+    margin-top: 60px;
+  }
+
+  .modal-content {
+    padding: 38px 22px 25px;
+  }
+
+  .modal-content h2 {
+    font-size: 28px;
+  }
+
+}
+
+/* =====================================
+   IMAGE HOMEPAGE CLICKABLE HOTSPOTS
+   图片原有按钮透明点击区域
+===================================== */
+
+.image-hero {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1648 / 928;
+    height: auto;
+    min-height: 0;
+    overflow: hidden;
+    display: block;
+    isolation: isolate;
+    background: #07101e;
+}
+
+/* 原始背景图片 */
+.image-hero .hero-background {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: fill;
+    z-index: 0;
+}
+
+/* 顶部透明区域 */
+.image-header {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* 所有透明点击区域 */
+.image-hotspot {
+    position: absolute;
+    display: block;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 10;
+}
+
+/* 点击区域调试时可临时打开 */
+/*
+.image-hotspot {
+    background: rgba(255, 0, 0, 0.2);
+}
+*/
+
+/* Logo */
+.logo-hotspot {
+    left: 3.3%;
+    top: 2.4%;
+    width: 16.5%;
+    height: 6.5%;
+}
+
+/* 顶部导航 */
+.image-nav {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.nav-home {
+    left: 41.5%;
+    top: 3%;
+    width: 4%;
+    height: 5%;
+}
+
+.nav-explore {
+    left: 47.3%;
+    top: 3%;
+    width: 4.7%;
+    height: 5%;
+}
+
+.nav-about {
+    left: 53.8%;
+    top: 3%;
+    width: 4%;
+    height: 5%;
+}
+
+/* 语言切换 */
+.language-hotspot {
+    left: 89.2%;
+    top: 3%;
+    width: 8.5%;
+    height: 5.2%;
+}
+
+/* 首页三个按钮 */
+.cta-explore {
+    left: 32.8%;
+    top: 41.9%;
+    width: 13%;
+    height: 5.6%;
+}
+
+.cta-art {
+    left: 47.2%;
+    top: 41.9%;
+    width: 11.8%;
+    height: 5.6%;
+}
+
+.cta-music {
+    left: 60%;
+    top: 41.9%;
+    width: 13.4%;
+    height: 5.6%;
+}
+
+/* 页面跳转定位 */
+#home,
+#about,
+#gallery,
+#songs,
+#artworkForm,
+#songForm {
+    scroll-margin-top: 25px;
+}
+
+/* 移动端 */
+@media (max-width: 600px) {
+
+    .image-hero {
+        aspect-ratio: 1648 / 928;
+    }
+
+    .logo-hotspot {
+        left: 3.3%;
+        top: 2.4%;
+        width: 19%;
+        height: 7%;
+    }
+
+    .nav-home {
+        left: 41%;
+        width: 5%;
+    }
+
+    .nav-explore {
+        left: 47%;
+        width: 6%;
+    }
+
+    .nav-about {
+        left: 54%;
+        width: 5%;
+    }
+
+    .language-hotspot {
+        left: 87.5%;
+        width: 10.5%;
+    }
+
+    .cta-explore {
+        left: 32.5%;
+        top: 41.9%;
+        width: 13.5%;
+        height: 6%;
+    }
+
+    .cta-art {
+        left: 47%;
+        top: 41.9%;
+        width: 12.2%;
+        height: 6%;
+    }
+
+    .cta-music {
+        left: 59.8%;
+        top: 41.9%;
+        width: 13.8%;
+        height: 6%;
+    }
+
+}
+
+/* =========================================
+   LANGUAGE SWITCH BUTTON
+========================================= */
+
+.language-toggle-button {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+
+    z-index: 30;
+    pointer-events: auto;
+
+    min-width: 85px;
+    padding: 9px 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 30px;
+
+    background: rgba(8, 14, 25, 0.85);
+    color: #ffffff;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.language-toggle-button:hover {
+    background: #ffffff;
+    color: #080e19;
+    transform: translateY(-2px);
+}
+
+.language-toggle-button:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 4px;
+}
+
+
+/* =========================================
+   CUSTOM ARTWORK FILE UPLOAD
+========================================= */
+
+.custom-file-upload {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.custom-file-upload input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.file-upload-button {
+    display: inline-block;
+    padding: 10px 20px;
+
+    border: 1px solid #a9c6b7;
+    border-radius: 25px;
+
+    background: rgba(169, 198, 183, 0.12);
+    color: #eaf2ed;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.file-upload-button:hover {
+    background: #a9c6b7;
+    color: #080e19;
+}
+
+#selectedFileName {
+    color: #bfc8d1;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.custom-file-upload input[type="file"]:focus-visible + .file-upload-button {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+/* =========================================
+   LANGUAGE HOTSPOT — FINAL OVERRIDE
+   Keep the language control invisible because
+   its appearance is already part of hero-night.png.
+========================================= */
+
+#languageToggle.language-hotspot {
+    position: absolute;
+    left: 88.5%;
+    top: 1.5%;
+    right: auto;
+    width: 9.5%;
+    height: 7%;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 30px;
+    background: transparent;
+    color: transparent;
+    font-size: 0;
+    line-height: 0;
+    box-shadow: none;
+    transform: none;
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 20;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#languageToggle.language-hotspot:hover {
+    background: transparent;
+    color: transparent;
+    transform: none;
+}
+
+#languageToggle.language-hotspot:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.9);
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    #languageToggle.language-hotspot {
+        left: 86.5%;
+        top: 1.5%;
+        width: 12%;
+        height: 7%;
+    }
+}
+
+/* =========================================
+   HOMEPAGE HOTSPOT INTERACTIONS
+   首页图片按钮交互反馈
+========================================= */
+
+/* 所有图片热点 */
+.image-hotspot {
+    transition:
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.2s ease,
+        filter 0.25s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 鼠标悬停：柔和发光 */
+.image-hotspot:hover {
+    background: rgba(255, 255, 255, 0.10);
+    box-shadow:
+        0 0 12px rgba(210, 235, 255, 0.28),
+        inset 0 0 10px rgba(255, 255, 255, 0.12);
+    filter: brightness(1.12);
+}
+
+/* 点击按下 */
+.image-hotspot:active {
+    transform: scale(0.96);
+    background: rgba(255, 255, 255, 0.16);
+}
+
+/* 键盘焦点 */
+.image-hotspot:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.9);
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   LANGUAGE SWITCHER
+   ENGLISH / 中文
+========================================= */
+
+.language-switcher {
+    position: absolute;
+    left: 88.5%;
+    top: 1.5%;
+    width: 9.5%;
+    height: 7%;
+
+    z-index: 30;
+    pointer-events: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    padding: 3px 7px;
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 30px;
+
+    background: rgba(8, 14, 25, 0.78);
+    backdrop-filter: blur(6px);
+
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.language-globe {
+    flex-shrink: 0;
+    font-size: clamp(10px, 1vw, 16px);
+    line-height: 1;
+}
+
+.language-option {
+    min-width: 0;
+    padding: 5px 4px;
+
+    border: none;
+    border-radius: 20px;
+
+    background: transparent;
+    color: rgba(255, 255, 255, 0.72);
+
+    font-family: Arial, sans-serif;
+    font-size: clamp(7px, 0.7vw, 11px);
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.language-option:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.language-option.active {
+    color: #101827;
+    background: #e6e9ed;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.22);
+}
+
+.language-option:active {
+    transform: scale(0.93);
+}
+
+.language-option:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+.language-divider {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 11px;
+    pointer-events: none;
+}
+
+
+/* =========================================
+   MOBILE LANGUAGE SWITCHER
+========================================= */
+
+@media (max-width: 600px) {
+
+    .language-switcher {
+        left: 86.5%;
+        top: 1.5%;
+        width: 12%;
+        height: 7%;
+        gap: 2px;
+        padding: 2px 3px;
+    }
+
+    .language-globe {
+        display: none;
+    }
+
+    .language-option {
+        padding: 4px 3px;
+        font-size: clamp(6px, 1.5vw, 9px);
+    }
+
+}

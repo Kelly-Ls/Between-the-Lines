@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080e19">
+  <title>Between the Lines</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<main>
+
+  <!-- Homepage: use the original image in assets/images -->
+  <section class="hero image-hero" id="home">
+
+    <img
+        class="hero-background"
+        src="assets/images/hero-night.png"
+        alt="Between the Lines"
+    >
+
+    <header class="image-header">
+
+        <!-- Logo -->
+        <a
+            class="image-hotspot logo-hotspot"
+            href="#home"
+            aria-label="Home">
+        </a>
+
+        <!-- 顶部导航 -->
+        <nav class="image-nav">
+
+            <a
+                class="image-hotspot nav-home"
+                href="#home"
+                aria-label="Home">
+            </a>
+
+            <a
+                class="image-hotspot nav-explore"
+                href="#gallery"
+                aria-label="Explore">
+            </a>
+
+            <a
+                class="image-hotspot nav-about"
+                href="#about"
+                aria-label="About">
+            </a>
+
+        </nav>
+
+        <!-- 语言切换：透明点击区域，按钮外观由背景图片提供 -->
+        <div class="language-switcher" aria-label="Language selection">
+
+    <span class="language-globe" aria-hidden="true">◎</span>
+
+    <button
+        type="button"
+        class="language-option active"
+        data-language="en"
+        aria-pressed="true">
+        ENGLISH
+    </button>
+
+    <span class="language-divider" aria-hidden="true">|</span>
+
+    <button
+        type="button"
+        class="language-option"
+        data-language="zh"
+        aria-pressed="false">
+        中文
+    </button>
+
+</div>
+    </header>
+
+
+    <!-- 图片中原有的三个按钮 -->
+    <a
+        href="#gallery"
+        class="image-hotspot cta-explore"
+        aria-label="Explore Gallery">
+    </a>
+
+    <a
+        href="#artworkForm"
+        class="image-hotspot cta-art"
+        aria-label="Share Your Art">
+    </a>
+
+    <a
+        href="#songForm"
+        class="image-hotspot cta-music"
+        aria-label="Share Your Music">
+    </a>
+
+</section>
+
+
+  <!-- About -->
+  <section class="about-section" id="about">
+
+    <div class="section-heading">
+
+      <p class="eyebrow" data-i18n="aboutEyebrow">
+        ABOUT THIS PLACE
+      </p>
+
+      <h2 data-i18n="aboutTitle">
+        You are not alone.
+      </h2>
+
+      <p data-i18n="aboutDescription">
+        This is a place where people share the stories behind their favourite songs and artworks. You may discover that someone, somewhere, understands exactly how you feel.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- Art Gallery -->
+  <section class="gallery-section" id="gallery">
+
+    <div class="section-heading">
+
+      <p class="eyebrow" data-i18n="galleryEyebrow">
+        A COLLECTION OF FEELINGS
+      </p>
+
+      <h2 data-i18n="galleryTitle">
+        Stories Through Art
+      </h2>
+
+      <p data-i18n="galleryDescription">
+        Share an artwork and tell us the story behind it.
+      </p>
+
+    </div>
+
+
+    <div class="form-container">
+
+      <h3 data-i18n="artworkFormTitle">
+        Share Your Artwork
+      </h3>
+
+      <p class="form-intro" data-i18n="artworkFormDescription">
+        Every artwork has a story worth sharing.
+      </p>
+
+
+      <form id="artworkForm">
+
+       <div class="form-group">
+
+    <label for="artworkImage" data-i18n="artworkImageLabel">
+        Upload Your Artwork
+    </label>
+
+    <div class="custom-file-upload">
+
+        <input
+            type="file"
+            id="artworkImage"
+            accept="image/jpeg,image/png,image/webp"
+            required
+        >
+
+        <label
+            for="artworkImage"
+            class="file-upload-button"
+            data-i18n="chooseFileButton">
+            Choose File
+        </label>
+
+        <span id="selectedFileName" data-i18n="noFileSelected">
+            No file selected
+        </span>
+
+    </div>
+
+    <small data-i18n="artworkImageHint">
+        JPG, PNG or WebP. Maximum 5MB.
+    </small>
+
+</div>
+
+
+        <div
+          id="artworkPreviewContainer"
+          class="artwork-preview-container"
+          hidden
+        >
+          <img
+            id="artworkPreview"
+            src=""
+            alt="Artwork preview"
+          >
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="artworkTitle" data-i18n="artworkTitleLabel">
+            Artwork Title
+          </label>
+
+          <input
+            type="text"
+            id="artworkTitle"
+            maxlength="100"
+            placeholder="Give your artwork a title"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="artworkStory" data-i18n="artworkStoryLabel">
+            The Story Behind It
+          </label>
+
+          <textarea
+            id="artworkStory"
+            rows="5"
+            maxlength="2000"
+            placeholder="Tell us what this artwork means to you..."
+            required
+          ></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="artworkType" data-i18n="artworkTypeLabel">
+            Artwork Type
+          </label>
+
+          <select id="artworkType" required>
+
+            <option value="Original" data-i18n="artworkOriginal">
+              Original Artwork
+            </option>
+
+            <option value="Study" data-i18n="artworkStudy">
+              Study / Inspired Artwork
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group" id="referenceGroup" hidden>
+
+          <label for="artworkReference" data-i18n="artworkReferenceLabel">
+            Reference / Original Source
+          </label>
+
+          <input
+            type="text"
+            id="artworkReference"
+            maxlength="300"
+            placeholder="Add the original artist or source"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="artworkIdentity" data-i18n="artworkIdentityLabel">
+            How would you like to appear?
+          </label>
+
+          <select id="artworkIdentity">
+
+            <option value="anonymous" data-i18n="anonymousOption">
+              Anonymous
+            </option>
+
+            <option value="penname" data-i18n="pennameOption">
+              Use a Pen Name
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group" id="artworkPenNameGroup" hidden>
+
+          <label for="artworkPenName" data-i18n="penNameLabel">
+            Your Pen Name
+          </label>
+
+          <input
+            type="text"
+            id="artworkPenName"
+            maxlength="40"
+            placeholder="Enter your pen name"
+          >
+
+        </div>
+
+
+        <button
+          type="submit"
+          id="artworkSubmitButton"
+          class="submit-button"
+          data-i18n="artworkSubmit"
+        >
+          Share Artwork
+        </button>
+
+        <p
+          id="artworkMessage"
+          class="form-message"
+          aria-live="polite"
+        ></p>
+
+      </form>
+
+    </div>
+
+
+    <div class="gallery-container">
+
+      <div class="gallery-grid" id="galleryGrid">
+
+        <p class="empty-message" data-i18n="loadingArtwork">
+          Loading artwork...
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- Artwork Detail Modal -->
+    <div
+      id="artworkDetailModal"
+      class="modal-backdrop"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="detailArtworkTitle"
+      hidden
+    >
+
+      <div class="modal-content">
+
+        <button
+          type="button"
+          id="closeArtworkModal"
+          class="close-modal"
+          aria-label="Close"
+        >
+          &times;
+        </button>
+
+        <p class="eyebrow" data-i18n="artworkDetailEyebrow">
+          THE STORY BEHIND THE ARTWORK
+        </p>
+
+        <img
+          id="detailArtworkImage"
+          src=""
+          alt=""
+          class="detail-artwork-image"
+        >
+
+        <h2 id="detailArtworkTitle"></h2>
+
+        <p id="detailArtworkType" class="detail-meta"></p>
+
+        <div id="detailArtworkStory" class="detail-story"></div>
+
+        <p id="detailArtworkAuthor" class="detail-author"></p>
+
+        <p id="detailArtworkReference" class="detail-reference"></p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Music -->
+  <section class="songs-section" id="songs">
+
+    <div class="section-heading">
+
+      <p class="eyebrow" data-i18n="songsEyebrow">
+        MUSIC CONNECTS US
+      </p>
+
+      <h2 data-i18n="songsTitle">
+        Our Songs, Our Stories
+      </h2>
+
+      <p data-i18n="songsDescription">
+        Tell us about a song that means something special to you.
+      </p>
+
+    </div>
+
+
+    <div class="form-container">
+
+      <h3 data-i18n="songFormTitle">
+        Share Your Song
+      </h3>
+
+      <p class="form-intro" data-i18n="songFormDescription">
+        Tell us why this song matters to you.
+      </p>
+
+
+      <form id="songForm">
+
+        <div class="form-group">
+
+          <label for="songTitle" data-i18n="songTitleLabel">
+            Song Title
+          </label>
+
+          <input
+            id="songTitle"
+            type="text"
+            maxlength="150"
+            placeholder="Enter the song title"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="songArtist" data-i18n="songArtistLabel">
+            Artist
+          </label>
+
+          <input
+            id="songArtist"
+            type="text"
+            maxlength="150"
+            placeholder="Enter the artist's name"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="songStory" data-i18n="songStoryLabel">
+            Your Story
+          </label>
+
+          <textarea
+            id="songStory"
+            rows="5"
+            maxlength="2000"
+            placeholder="What does this song mean to you?"
+            required
+          ></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="songIdentity" data-i18n="identityLabel">
+            How would you like to appear?
+          </label>
+
+          <select id="songIdentity">
+
+            <option value="anonymous" data-i18n="anonymousOption">
+              Anonymous
+            </option>
+
+            <option value="penname" data-i18n="pennameOption">
+              Use a Pen Name
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group" id="penNameGroup" hidden>
+
+          <label for="songPenName" data-i18n="penNameLabel">
+            Your Pen Name
+          </label>
+
+          <input
+            id="songPenName"
+            type="text"
+            maxlength="40"
+            placeholder="Enter your pen name"
+          >
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="submit-button"
+          data-i18n="songSubmit"
+        >
+          Share Your Story
+        </button>
+
+        <p
+          id="songMessage"
+          class="form-message"
+          aria-live="polite"
+        ></p>
+
+      </form>
+
+    </div>
+
+
+    <div class="song-list-container">
+
+      <div id="songList">
+
+        <p class="empty-message" data-i18n="loadingSongs">
+          Loading stories...
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- Song Detail Modal -->
+    <div
+      id="songDetailModal"
+      class="modal-backdrop"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="detailSongTitle"
+      hidden
+    >
+
+      <div class="modal-content">
+
+        <button
+          type="button"
+          id="closeSongModal"
+          class="close-modal"
+          aria-label="Close"
+        >
+          &times;
+        </button>
+
+        <p class="eyebrow" data-i18n="songDetailEyebrow">
+          THE STORY BEHIND THE SONG
+        </p>
+
+        <h2 id="detailSongTitle"></h2>
+
+        <p id="detailSongArtist" class="detail-artist"></p>
+
+        <div id="detailSongStory" class="detail-story"></div>
+
+        <p id="detailSongAuthor" class="detail-author"></p>
+
+
+        <div class="comments-section">
+
+          <h3 data-i18n="commentsTitle">
+            Leave a Thought
+          </h3>
+
+          <div id="commentList">
+
+            <p data-i18n="loadingComments">
+              Loading comments...
+            </p>
+
+          </div>
+
+
+          <form id="commentForm">
+
+            <div class="form-group">
+
+              <label for="commentText" data-i18n="commentLabel">
+                Your Comment
+              </label>
+
+              <textarea
+                id="commentText"
+                rows="3"
+                maxlength="1000"
+                placeholder="Share your thoughts..."
+                required
+              ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="commentName" data-i18n="commentNameLabel">
+                Your Name (Optional)
+              </label>
+
+              <input
+                id="commentName"
+                type="text"
+                maxlength="40"
+                placeholder="Anonymous"
+              >
+
+            </div>
+
+
+            <button
+              type="submit"
+              class="submit-button"
+              data-i18n="commentSubmit"
+            >
+              Post Comment
+            </button>
+
+            <p
+              id="commentMessage"
+              class="form-message"
+              aria-live="polite"
+            ></p>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+a
+<footer class="site-footer">
+
+  <p data-i18n="footerText">
+    Between the Lines — A place where feelings find each other.
+  </p>
+
+</footer>
+
+
+<!-- Keep Supabase loading before script.js -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>
